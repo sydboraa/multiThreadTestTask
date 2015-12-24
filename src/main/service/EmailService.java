@@ -18,7 +18,7 @@ public class EmailService implements Callable<Email> {
         this.receiver = receiver;
     }
 
-    public Email call() throws Exception {
+    public Email call() {
         return sendEmail(this.email, this.receiver);
     }
 
