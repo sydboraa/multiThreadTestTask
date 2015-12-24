@@ -24,5 +24,7 @@ While sending emails, to simulate network latency I applied random Thread.sleep 
             Thread.sleep(randomSleepTime);
             /* end of simulation*/
 ```
+**Console Output**
 
+![Console Output](https://raw.githubusercontent.com/sydboraa/multiThreadTestTask/master/src/output/console.png)
 
