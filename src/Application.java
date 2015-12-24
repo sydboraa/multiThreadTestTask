@@ -2,6 +2,8 @@ import model.Email;
 import model.Person;
 import service.EmailService;
 import service.FileService;
+import service.PersonService;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,19 +15,21 @@ import java.util.concurrent.Executors;
  */
 public class Application {
 
-    public static void main(String [] args) throws Exception{
-        Date startTime = new java.util.Date();
-        System.out.println("Sending email started: "  + startTime);
-
+    public static void main(String [] args) throws Exception {
+        //creating some emails
         List<Email> emailList = getSomeEmails();
 
-        FileService fileService = new FileService();
-        List<Person> personList = fileService.readFile("src/receivers.txt");
+        //getting persons from file
+        PersonService personService = new PersonService();
+        List<Person> personList = personService.getPersonsFromFile();
 
+        //Emails are sending simultaneously
         ExecutorService executor = Executors.newFixedThreadPool(3);
         List<EmailService> myCallables = new ArrayList<>();
 
         for(Email email: emailList) {
+            //If system is designed for a huge environment, personList can design using cursor.
+            //because, millions of person information cannot hold in a list
             for (Person person : personList) {
                 if (person.getIsActive()) {
                     myCallables.add(new EmailService(email, person));
@@ -35,8 +39,6 @@ public class Application {
 
         executor.invokeAll(myCallables);
         executor.shutdown();
-
-        System.out.println("Sending email completed: "  + startTime);
     }
 
     public static List<Email> getSomeEmails() {
