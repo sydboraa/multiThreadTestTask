@@ -30,4 +30,11 @@ public class PersonServiceTest {
         doThrow(new NullPointerException()).when(mockFileService).readFileAndCreatePerson(null);
         mockFileService.readFileAndCreatePerson(null);
     }
+
+    @Test(expected=RuntimeException.class)
+    public void testGetPersonsFromFileWithWrongFileName() {
+        FileService mockFileService = Mockito.mock(FileService.class);
+        doThrow(new RuntimeException()).when(mockFileService).readFileAndCreatePerson("wrongFileName");
+        mockFileService.readFileAndCreatePerson("wrongFileName");
+    }
 }
