@@ -31,7 +31,7 @@ public class FileServiceTest {
         String fileName = "src/receivers.txt";
         FileService fileService = new FileService();
         List<Person> personList = fileService.readFileAndCreatePerson(fileName);
-        assertEquals(personList.size(), 3);
+        assertEquals(personList.size(), 8);
     }
 
     @Test

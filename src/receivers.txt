@@ -1,5 +1,11 @@
 Seyda Benzer 25 seydaborabenzer@gmail.com true
-Ilhan Irem 54 ilhanirem@gmail.com false
-Ilhan Irem 54 fikret@gmail.com true
+Homer Simpson 45 homer@simpson.com true
+Marge Simpson 40 marge@simpson.com true
+Bart Simpson 12 bart@simpson.com true
+Lisa Simpson 10 lisa@simpson.com true
+Maggie Simpson 3 maggie@simpson.com false
+John Snow 35 john@snow.com true
+John Reese 34 john@reese.com false
+
 
 
