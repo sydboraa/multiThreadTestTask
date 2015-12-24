@@ -1,11 +1,8 @@
 import model.Email;
 import model.Person;
 import service.EmailService;
-import service.FileService;
 import service.PersonService;
-
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -39,6 +36,8 @@ public class Application {
 
         executor.invokeAll(myCallables);
         executor.shutdown();
+
+        System.out.println("Completed email sending!");
     }
 
     public static List<Email> getSomeEmails() {

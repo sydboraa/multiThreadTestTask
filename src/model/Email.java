@@ -25,6 +25,8 @@ public class Email {
         this.sender = sender;
     }
 
+    public String getContent() { return content; }
+
     public void setContent(String content) {
         this.content = content;
     }

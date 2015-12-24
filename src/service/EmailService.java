@@ -2,6 +2,7 @@ package service;
 
 import model.Email;
 import model.Person;
+import java.util.Random;
 import java.util.concurrent.Callable;
 
 /**
@@ -22,8 +23,21 @@ public class EmailService implements Callable<Email> {
     }
 
     public Email sendEmail(Email email, Person receiver) {
-        System.out.println("The " + email.getSubject() + " email was sent to " + receiver.getEmaill());
-        return email;
+        try {
+            /*
+            *  I added this code block because, I want to simulate the network latency while sending email.
+            * */
+            Random random = new Random();
+            int randomSleepTime = random.nextInt(200 - 1 + 1) + 1;
+            Thread.sleep(randomSleepTime);
+            /* end of simulation*/
+
+            System.out.println("Subject: " + email.getSubject() + " Content: " + email.getContent() + " Receiver: " + receiver.getEmaill());
+            return email;
+        } catch (InterruptedException ex) {
+            System.out.println("Email cannot sent! " + ex.getMessage());
+            return email;
+        }
     }
 
 }

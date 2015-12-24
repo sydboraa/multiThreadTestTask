@@ -11,9 +11,8 @@ public class PersonService {
 
     public List<Person> getPersonsFromFile() {
         FileService fileService = new FileService();
-        List<Person> personList = fileService.readFile("src/receivers.txt");
+        List<Person> personList = fileService.readFileAndCreatePerson("src/receivers.txt");
         return personList;
     }
-
 
 }

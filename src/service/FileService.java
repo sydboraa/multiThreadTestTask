@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class FileService {
 
-    public List<Person> readFile(String fileName) {
+    public List<Person> readFileAndCreatePerson(String fileName) {
         List<Person> personList = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             for(String line; (line = br.readLine()) != null; ) {
